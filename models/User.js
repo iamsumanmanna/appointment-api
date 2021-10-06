@@ -4,6 +4,7 @@ const UserSchema = new mongoose.Schema(
     role : {
       type : String,
       default : "student",
+      enum : ["student","teacher","admin"],
     },
     gender : {
       type : String,
@@ -34,8 +35,13 @@ const UserSchema = new mongoose.Schema(
       required: true,
       min: 6,
     },
+    status : {
+      type : String,
+      default:'active'
+    }
   },
-  { timestamps: true }
+  { timestamps: true },
+  { versionKey: false }
 );
 
 module.exports = mongoose.model("User", UserSchema);

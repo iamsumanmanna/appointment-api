@@ -40,8 +40,9 @@ router.post("/login", async (req, res, next) => {
         id: user._id,
         role: user.role,
       },
-      process.env.JWT_SEC,{
-        expiresIn : '2h'
+      process.env.JWT_SEC,
+      {
+        expiresIn: "2h",
       }
     );
 
@@ -50,7 +51,7 @@ router.post("/login", async (req, res, next) => {
     res.status(200).json({
       message: "User Found",
       user: others,
-      token : accessToken
+      token: accessToken,
     });
   } catch (err) {
     console.log(err);
