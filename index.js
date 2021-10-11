@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const studentRoutes = require("./routes/students");
 const authRoutes = require("./routes/auth");
+const lessonRoutes = require("./routes/lessons")
 const PORT = process.env.PORT || 8000;
 
 dotenv.config();
@@ -29,6 +30,8 @@ app.use(morgan("common"));
 //Routes Middlewere
 app.use("/api/students", studentRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/lessons",lessonRoutes);
+
 //End Routes
 
 app.listen(PORT, () => {
