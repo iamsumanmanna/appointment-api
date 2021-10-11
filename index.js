@@ -32,6 +32,12 @@ app.use("/api/students", studentRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/lessons",lessonRoutes);
 
+app.get("/",async(req, res)=>{
+  res.status(200).json({
+    message : "Hii Node Js App"
+  })
+})
+
 //End Routes
 
 app.listen(PORT, () => {
